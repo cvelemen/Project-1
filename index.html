@@ -4,25 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Foretunes</title>    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
       integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" src="/style.css" />
+    />    
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <div id="logo"></div>
+      <div id="logo" class="columns">
+      <div >Logo Goes Here</div>
+    </div>
     </header>
-    <div class="container">
-      <div class="weatherCard">
+    <div class="columns is-variable is-8-widescreen">
+      <div class="weatherCard box column">
         <h2 class="weatherHeader">Weather</h2>
-        <div class="container icons">Icons here</div>
-        <div class="container">
+        <div class="icons">Icons here</div>
+        <div class="box weatherList">
           <ul>
             <li>Precipitation</li>
             <li>Temperature</li>
@@ -32,7 +34,7 @@
           </ul>
         </div>
       </div>
-      <div class="musicCard">
+      <div class="musicCard box column ">
         <h2 class="musicHeader">Curated Music</h2>
         <div>
           <ul></ul>
