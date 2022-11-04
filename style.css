@@ -1,6 +1,43 @@
-.container .card .weatherHeader .icons .musicHeader {
-  border: 2px solid black;
+body {
+  background-color: rgb(47, 68, 87) !important;
 }
-.card {
-  border: 2px solid black !important;
+
+.weatherHeader {
+border: 2px solid;
+justify-content: center;
+text-align: center;
+height: 20%;
+}
+.icons {
+border: 2px solid;
+text-align: center;
+height: 20%;
+}
+.weatherList {
+border: 2px solid;
+height: 60%;
+}
+.weatherCard {
+
+}
+.column { 
+  margin: 50px;
+}
+.columns {
+  justify-content: center;
+}
+.weatherCard {
+  margin-top: 100px;
+  height: 50vh;
+  width: 40vw;
+}
+.musicCard {
+  margin-top: 100px;
+  height: 50vh;
+  width: 40vw;
+}
+
+#logo {
+  justify-content: center;
+  margin-top: auto;
 }
