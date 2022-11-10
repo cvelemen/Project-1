@@ -1,5 +1,6 @@
 body {
   background-color: rgb(47, 68, 87) !important;
+  height: 100vh;
 }
 
 .weatherHeader {
