@@ -109,14 +109,6 @@ function getCocktailAPI(drink) {
 
 
 
-
-
-
-
-
-
-
-
 // var requestUrl = 'www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 
 // $.get(requestUrl, function(data){
