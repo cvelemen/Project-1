@@ -58,7 +58,7 @@ function getCocktailAPI(drink) {
               return response.json()
     }).then((data) => {
       console.log("API", data);
-      var html = `<div class="card">
+      var html = `<div id="drinkCard" class="card">
       <div class="card-image">
         <figure class="image is-4by3">
           <img src="${data.drinks[0].strDrinkThumb}"alt="Placeholder image">
