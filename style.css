@@ -20,8 +20,7 @@ body {
   height: 60%;
   border-radius: 0px 0px 10px 10px;
 }
-.weatherCard {
-}
+
 .column {
   margin: 50px;
 }
@@ -32,6 +31,7 @@ body {
   margin-top: 100px;
   height: 50vh;
   width: 40vw;
+  border-radius: 20px;
 }
 .musicCard {
   margin-top: 100px;
@@ -39,6 +39,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 40vw;
+  border-radius: 20px;
 }
 
 #logo {
