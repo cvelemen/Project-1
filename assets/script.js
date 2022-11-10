@@ -13,7 +13,11 @@ sunnyCocktails = [
   "daiquiri",
   "mai_tai",
   "margarita",
+<<<<<<< HEAD
   "mint_jul
+=======
+  "mint_julep",
+>>>>>>> f1198d5f31e85cbb80649a3c735ae87e630c5ac3
   "mojito",
   "moscow - mule",
   "tom_collins",
