@@ -47,8 +47,8 @@ snowyCocktails = [
 ]
 
 
-var randomSelect = Math.floor(Math.random() * snowyCocktails.length)
-var drink = snowyCocktails[randomSelect]
+var randomSelect = Math.floor(Math.random() * sunnyCocktails.length)
+var drink = sunnyCocktails[randomSelect]
 
 getCocktailAPI(drink)
 function getCocktailAPI(drink) {
@@ -70,16 +70,14 @@ function getCocktailAPI(drink) {
             <figure class="image is-48x48"></figure>
           
           <div class="media-content">
-            <p class="title is-5">${data.drinks[0].strDrink}}</p>
-            <p class="subtitle is-6">@johnsmith</p>
+            <p class="title is-5">${data.drinks[0].strDrink}</p>
+            ${getIngredients(data.drinks[0])}
           </div>
         </div>
     
         <div class="content">
           Cocktail photo, ingredients, and technique
-          <ul>
-            <li></li>
-          </ul>
+          <a href="#">Ingredients: d</a> <a href="#">#responsive</a>
       </div>
       </div>
     </div>`
@@ -88,6 +86,20 @@ function getCocktailAPI(drink) {
     }).catch((err) => {
       console.error(err)
     })
+
+    function getIngredients(drink) {
+      var ingredients = ""
+      for(var i = 0; i < 15; i++) {
+      var ingredientName = drink['strIngredient' + (i+1)]
+      if(!ingredientName) {
+        break
+      }
+      var measure = drink['strMeasure' + (i+1)]
+      ingredients += `<p class="subtitle is-6">${ingredientName} ${measure}</p>
+      `
+      }
+      return ingredients
+    }
    
 }
 
