@@ -1,7 +1,10 @@
 body {
   background-color: rgb(47, 68, 87) !important;
 }
+.hero-body{
+  background-color: #5ce1e6;
 
+}
 .weatherHeader {
 border: 2px solid;
 justify-content: center;
