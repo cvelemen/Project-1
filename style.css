@@ -1,6 +1,19 @@
 body {
   background-color: rgb(47, 68, 87) !important;
 }
+.hero-body{
+
+  background-color: rgb(92,225,230);
+
+}
+.hero.is-warning{
+  background-color: rgb(92,225,230);
+  align-items: center;
+}
+.hero-body{
+  padding: 10px;
+  padding-bottom: 20px;
+}
 
 .weatherHeader {
 border: 2px solid;
@@ -34,8 +47,11 @@ height: 60%;
   width: 40vw;
 }
 .logo{
- height:30%;
+height: 275px;
+width: 400px;
 align-items:center;
+object-fit: none;
+justify-content: center;
   
 }
 
