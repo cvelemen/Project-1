@@ -1,18 +1,12 @@
-// TODO: create input for user to enter a city's name into
+
+// Assigning the api.opemweathermap.org key to var api.  Developement team started account in order to  obtain key.
+// Key must be in url in order to fetch from api.opemweathermap.org.
 const api = "c90b5488ed6ad2675575883e578f5209";
 
-var city;
+var city;  // to be used in event listener
 
-$('#submitButton').on('click', function(event) {
-  event.preventDefault();
-  city = $('#cityInput').val();
-  console.log(city);
-  getDrink(city)
-});
-
-
-
-sunnyCocktails = [
+// Arrau is created holding cocktails appropriatte to be consumed during hot weather.
+hotWeatherCocktails = [
   "aperol_spritz",
   "caipirinha",
   "daiquiri",
@@ -24,8 +18,8 @@ sunnyCocktails = [
   "tom_collins",
   "pina_colada"
 ]
-
-rainyCocktails = [
+// Arrau is created holding cocktails appropriatte to be consumed during moderate weather.
+moderateWeatherCocktails = [
   "cosmopolitan",
   "espresso_martini",
   "last_word ",
@@ -38,7 +32,8 @@ rainyCocktails = [
   "vesper"
 ]
 
-snowyCocktails = [
+// Arrau is created holding cocktails appropriatte to be consumed during cold weather.
+coldWeatherCocktails = [
   "hot_creamy_bush",
   "hot_toddy",
   "irish_coffee",
@@ -51,50 +46,58 @@ snowyCocktails = [
   "talos_coffee"
 ]
 
-function getDrink(city){
-  var drink
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=imperial`)
-    .then(data =>{
-        return data.json()
-    }).then(function(apiResults) { 
-        console.log('weather API: ', apiResults)
-        if(apiResults.main.temp > 79) {
-          // code here for sunny day
-          drink = sunnyCocktails[Math.floor(Math.random() * sunnyCocktails.length)]
-        } else if(apiResults.main.temp > 50) {
-          // code here for rainy day
-          drink = rainyCocktails[Math.floor(Math.random() * rainyCocktails.length)]
-        } else {
-          // code here for cold day
-          drink = snowyCocktails[Math.floor(Math.random() * snowyCocktails.length)]
-        }
-        getCocktailAPI(drink)
-        
 
-        // var html = 
-        // `<div class="card" style="width:10rem">
-        //   <div class="card-body">
-        //     <h5 class="card-title">${city}
-        //       <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
-        //     </h5>
-        //       <p class="card-text">Temp: ${apiResults.main.temp}</p>
-        //       <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
-        //       <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
-        //       <p class="card-text">Description: ${apiResults.weather[0].descriptn}</p>
-        //   </div>
-        // </div>`
+$('#submitButton').on('click', function (event) {
+  event.preventDefault();
+  city = $('#cityInput').val();
+  console.log(city);
+  getDrink(city)
+});
+
+function getDrink(city) {
+  var drink
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=imperial`)
+    .then(data => {
+      return data.json()
+    }).then(function (apiResults) {
+      console.log('weather API: ', apiResults)
+      if (apiResults.main.temp > 79) {
+        // code here for sunny day
+        drink = hotWeatherCocktails[Math.floor(Math.random() * hotWeatherCocktails.length)]
+      } else if (apiResults.main.temp > 50) {
+        // code here for rainy day
+        drink = moderateWeatherCocktails[Math.floor(Math.random() * moderateWeatherCocktails.length)]
+      } else {
+        // code here for cold day
+        drink = coldWeatherCocktails[Math.floor(Math.random() * coldWeatherCocktails.length)]
+      }
+      getCocktailAPI(drink)
+
+
+      // var html = 
+      // `<div class="card" style="width:10rem">
+      //   <div class="card-body">
+      //     <h5 class="card-title">${city}
+      //       <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
+      //     </h5>
+      //       <p class="card-text">Temp: ${apiResults.main.temp}</p>
+      //       <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
+      //       <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
+      //       <p class="card-text">Description: ${apiResults.weather[0].descriptn}</p>
+      //   </div>
+      // </div>`
       // document.getElementById("#weatherHeader").innerHTML = html
       // getFiveDayForcast(lat,lon,city)
       // TODO pass function that will use conditions to choose drink based on weather
     })
-    
+
 }
 
 function getCocktailAPI(drink) {
   console.log(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
   fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then((response) => {
-              return response.json()
+      return response.json()
     }).then((data) => {
       console.log("API", data);
       var html = `<div class="card">
@@ -120,27 +123,27 @@ function getCocktailAPI(drink) {
       </div>
       </div>
     </div>`
-    document.getElementById("cocktailChoice").innerHTML = html
-     
+      document.getElementById("cocktailChoice").innerHTML = html
+
     }).catch((err) => {
       console.error(err)
     })
 
-    function getIngredients(drink) {
-      var ingredients = ""
-      for(var i = 0; i < 15; i++) {
-      var ingredientName = drink['strIngredient' + (i+1)]
-      if(!ingredientName) {
+  function getIngredients(drink) {
+    var ingredients = ""
+    for (var i = 0; i < 15; i++) {
+      var ingredientName = drink['strIngredient' + (i + 1)]
+      if (!ingredientName) {
         break
       }
-      var measure = drink['strMeasure' + (i+1)]
+      var measure = drink['strMeasure' + (i + 1)]
       ingredients += `<p class="subtitle is-6">${ingredientName} ${measure}</p>
       `
-      }
-      return ingredients
     }
+    return ingredients
+  }
 
-    
+
 }
 
 // // var randomDrinkNum = drinksByWeather.currentWeather.length * randomNumberExpressionHERE
