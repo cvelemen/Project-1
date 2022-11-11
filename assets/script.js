@@ -9,7 +9,7 @@
 // Key must be in url in order to fetch from api.opemweathermap.org.
 const api = "c90b5488ed6ad2675575883e578f5209"
 
-var city  // to be used in event listener
+var city  // To be used in event listener.
 
 // Array is created holding cocktails appropriate for hot weather.
 hotWeatherCocktails = [
@@ -24,6 +24,7 @@ hotWeatherCocktails = [
   "tom_collins",
   "pina_colada"
 ]
+
 // Array is created holding cocktails appropriate for moderate weather.
 moderateWeatherCocktails = [
   "cosmopolitan",
@@ -70,7 +71,7 @@ $('#submitButton').on('click', function (event) {
 // If the current temperature in that city is below 50 degrees F, 
 // the function will randomly chose a cocktail from an array of cold weather cocktails.
 // The function will then call the getCocktailInfo() function, 
-// which fetches cocktail info and displays it.
+// which fetches cocktail information and displays it.
 function getDrink(city) {
 
   var drink
@@ -82,13 +83,19 @@ function getDrink(city) {
 
     }).then(function (apiResults) {
 
-      console.log('weather API: ', apiResults) // console log
+      // Test fetched data in console.log
+      console.log('weather API: ', apiResults)
 
       if (apiResults.main.temp > 79) {
+
         drink = hotWeatherCocktails[Math.floor(Math.random() * hotWeatherCocktails.length)]
+
       } else if (apiResults.main.temp > 49) {
+
         drink = moderateWeatherCocktails[Math.floor(Math.random() * moderateWeatherCocktails.length)]
+
       } else {
+
         drink = coldWeatherCocktails[Math.floor(Math.random() * coldWeatherCocktails.length)]
       }
 
@@ -101,9 +108,6 @@ function getDrink(city) {
             <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
           </h5>
             <p class="card-text">Temp: ${apiResults.main.temp}</p>
-            <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
-            <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
-            <p class="card-text">Description: ${apiResults.weather[0].descriptn}</p>
         </div>
       </div>`
 
@@ -126,8 +130,10 @@ function getCocktailInfo(drink) {
 
     }).then((data) => {
 
-      console.log("API", data) // console log
+      // Test fetched data in console.log
+      console.log("API", data)
 
+      // Build card containing drink information and asign it to var html.
       var html =
         `<div class="card">
       <div class="card-image">
@@ -154,35 +160,46 @@ function getCocktailInfo(drink) {
       </div>
     </div>`
 
-      // Assign html to the cocktailChoice 
+      // Display the html card.
       document.getElementById("cocktailChoice").innerHTML = html
 
+      // Handle errors.
     }).catch((err) => {
+
+      // Display error in console log.
       console.error(err)
+
     })
 
+  // The getIngredients() function processes, and returns, the ingredients and measurements of 
+  // the randomly chosen cocktail from the drinks object that was fetched from the thecocktaildb.com API.
+  // It is called in the getCocktailInfo() function.
   function getIngredients(drink) {
-    var ingredients = ""
-    for (var i = 0; i < 15; i++) {
-      var ingredientName = drink['strIngredient' + (i + 1)]
-      if (!ingredientName) {
-        break
-      }
-      var measure = drink['strMeasure' + (i + 1)]
-      ingredients += `<p class="subtitle is-6">${ingredientName} ${measure}</p>
-      `
-    }
-    return ingredients
-  }
 
+    var ingredients = ""
+
+    for (var i = 0; i < 15; i++) {
+
+      var ingredientName = drink['strIngredient' + (i + 1)]
+
+      if (!ingredientName) {
+
+        break
+
+      }
+
+      var measure = drink['strMeasure' + (i + 1)]
+
+      ingredients += `<p class="subtitle is-6">${ingredientName} ${measure}</p>`
+
+    }
+
+    return ingredients
+
+  }
 
 }
 
-// // var randomDrinkNum = drinksByWeather.currentWeather.length * randomNumberExpressionHERE
-// // var randomDrink = drinksByWeather.currentWeather[randomDrinkNum]
-// fetch cocktail info from API
-// // fetch(`cocktail..urlblah/${randomDrink}`){data}
-// display relevent cocktail info
 
 
 
@@ -203,12 +220,5 @@ function getCocktailInfo(drink) {
 
 
 
-
-// var requestUrl = 'www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
-
-// $.get(requestUrl, function(data){
-//   console.log(data);
-//   console.log
-// });
 
 
