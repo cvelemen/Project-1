@@ -1,10 +1,7 @@
 body {
   background-color: rgb(47, 68, 87) !important;
 }
-.hero-body{
-  background-color: #5ce1e6;
 
-}
 .weatherHeader {
 border: 2px solid;
 justify-content: center;
@@ -36,8 +33,9 @@ height: 60%;
   height: 50vh;
   width: 40vw;
 }
-
-#logo {
-  justify-content: center;
-  margin-top: auto;
+.logo{
+ height:30%;
+align-items:center;
+  
 }
+
