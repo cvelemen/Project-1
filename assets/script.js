@@ -7,49 +7,9 @@ $('#submitButton').on('click', function(event) {
   event.preventDefault();
   city = $('#cityInput').val();
   console.log(city);
-  getLatLong(city);
+  getDrink(city)
 });
 
-function getLatLong(city){
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=imperial`)
-    .then(data =>{
-        return data.json()
-    }).then(function(apiResults) { 
-        console.log('weather API: ', apiResults)
-        if(apiResults.main.temp > 79) {
-          // code here for sunny day
-          Math.floor(Math.random() * sunnyCocktails.length)
-        } else if(apiResults.main.temp > 50) {
-          // code here for rainy day
-          Math.floor(Math.random() * rainyCocktails.length)
-        } else {
-          // code here for cold day
-          Math.floor(Math.random() * snowyCocktails.length)
-        }
-
-        
-
-
-        
-        
-
-        // var html = 
-        // `<div class="card" style="width:10rem">
-        //   <div class="card-body">
-        //     <h5 class="card-title">${city}
-        //       <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
-        //     </h5>
-        //       <p class="card-text">Temp: ${apiResults.main.temp}</p>
-        //       <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
-        //       <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
-        //       <p class="card-text">Description: ${apiResults.weather[0].descriptn}</p>
-        //   </div>
-        // </div>`
-      // document.getElementById("#weatherHeader").innerHTML = html
-      // getFiveDayForcast(lat,lon,city)
-      // TODO pass function that will use conditions to choose drink based on weather
-    })
-}
 
 
 sunnyCocktails = [
@@ -91,13 +51,45 @@ snowyCocktails = [
   "talos_coffee"
 ]
 
+function getDrink(city){
+  var drink
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=imperial`)
+    .then(data =>{
+        return data.json()
+    }).then(function(apiResults) { 
+        console.log('weather API: ', apiResults)
+        if(apiResults.main.temp > 79) {
+          // code here for sunny day
+          drink = sunnyCocktails[Math.floor(Math.random() * sunnyCocktails.length)]
+        } else if(apiResults.main.temp > 50) {
+          // code here for rainy day
+          drink = rainyCocktails[Math.floor(Math.random() * rainyCocktails.length)]
+        } else {
+          // code here for cold day
+          drink = snowyCocktails[Math.floor(Math.random() * snowyCocktails.length)]
+        }
+        getCocktailAPI(drink)
+        
 
+        // var html = 
+        // `<div class="card" style="width:10rem">
+        //   <div class="card-body">
+        //     <h5 class="card-title">${city}
+        //       <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
+        //     </h5>
+        //       <p class="card-text">Temp: ${apiResults.main.temp}</p>
+        //       <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
+        //       <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
+        //       <p class="card-text">Description: ${apiResults.weather[0].descriptn}</p>
+        //   </div>
+        // </div>`
+      // document.getElementById("#weatherHeader").innerHTML = html
+      // getFiveDayForcast(lat,lon,city)
+      // TODO pass function that will use conditions to choose drink based on weather
+    })
+    
+}
 
-
-var randomSelect = Math.floor(Math.random() * sunnyCocktails.length)
-var drink = sunnyCocktails[randomSelect]
-
-getCocktailAPI(drink)
 function getCocktailAPI(drink) {
   console.log(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
   fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
