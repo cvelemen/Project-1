@@ -152,10 +152,9 @@ function getCocktailInfo(drink) {
             ${getIngredients(data.drinks[0])}
           </div>
         </div>
-    <!--This is here as a place keeper for where strInsructions should be fetched from drinks object and displayed-->
         <div class="content">
-          Cocktail photo, ingredients, and technique
-          <a href="#">Ingredients: d</a> <a href="#">#responsive</a>
+        <!--This is where strInsructions is fetched from drinks object and displayed-->
+          <p "is-3">${data.drinks[0].strInstructions}</p>
       </div>
       </div>
     </div>`
