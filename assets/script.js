@@ -1,4 +1,40 @@
 // TODO: create input for user to enter a city's name into
+const api = "c90b5488ed6ad2675575883e578f5209";
+
+var city;
+
+$('#submitButton').on('click', function(event) {
+  event.preventDefault();
+  city = $('#cityInput').val();
+  console.log(city);
+  getLatLong(city);
+});
+
+function getLatLong(city){
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=imperial`)
+    .then(data =>{
+        return data.json()
+    }).then(function(apiResults) { 
+        console.log(apiResults)
+        let lat = apiResults.coord.lat
+        let lon = apiResults.coord.lon
+        // var html = 
+        // `<div class="card" style="width:10rem">
+        //   <div class="card-body">
+        //     <h5 class="card-title">${city}
+        //       <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
+        //     </h5>
+        //       <p class="card-text">Temp: ${apiResults.main.temp}</p>
+        //       <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
+        //       <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
+        //       <p class="card-text">Description: ${apiResults.weather[0].description}</p>
+        //   </div>
+        // </div>`
+      // document.getElementById("#weatherHeader").innerHTML = html
+      // getFiveDayForcast(lat,lon,city)
+      // TODO pass function that will use conditions to choose drink based on weather
+    })
+}
 // TODO: see what the current weather is (know the keywords the weather API uses)
 // TODO: display the weather conditions for that city
 // // connect to Open Weather Map API
@@ -135,19 +171,5 @@ function getCocktailAPI(drink) {
 //   console.log(data);
 //   console.log
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
