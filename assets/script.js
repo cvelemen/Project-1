@@ -15,9 +15,24 @@ function getLatLong(city){
     .then(data =>{
         return data.json()
     }).then(function(apiResults) { 
-        console.log(apiResults)
-        let lat = apiResults.coord.lat
-        let lon = apiResults.coord.lon
+        console.log('weather API: ', apiResults)
+        if(apiResults.main.temp > 79) {
+          // code here for sunny day
+          Math.floor(Math.random() * sunnyCocktails.length)
+        } else if(apiResults.main.temp > 50) {
+          // code here for rainy day
+          Math.floor(Math.random() * rainyCocktails.length)
+        } else {
+          // code here for cold day
+          Math.floor(Math.random() * snowyCocktails.length)
+        }
+
+        
+
+
+        
+        
+
         // var html = 
         // `<div class="card" style="width:10rem">
         //   <div class="card-body">
@@ -27,7 +42,7 @@ function getLatLong(city){
         //       <p class="card-text">Temp: ${apiResults.main.temp}</p>
         //       <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
         //       <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
-        //       <p class="card-text">Description: ${apiResults.weather[0].description}</p>
+        //       <p class="card-text">Description: ${apiResults.weather[0].descriptn}</p>
         //   </div>
         // </div>`
       // document.getElementById("#weatherHeader").innerHTML = html
@@ -35,14 +50,8 @@ function getLatLong(city){
       // TODO pass function that will use conditions to choose drink based on weather
     })
 }
-// TODO: see what the current weather is (know the keywords the weather API uses)
-// TODO: display the weather conditions for that city
-// // connect to Open Weather Map API
-// // get current weather information
 
 
-// TODO: randomly find a cocktail from the array based on the weather
-// // create arrays that hold cocktails by weather category
 sunnyCocktails = [
   "aperol_spritz",
   "caipirinha",
@@ -81,6 +90,8 @@ snowyCocktails = [
   "swedish_coffee",
   "talos_coffee"
 ]
+
+
 
 
 var randomSelect = Math.floor(Math.random() * sunnyCocktails.length)
@@ -136,7 +147,8 @@ function getCocktailAPI(drink) {
       }
       return ingredients
     }
-   
+
+    
 }
 
 // // var randomDrinkNum = drinksByWeather.currentWeather.length * randomNumberExpressionHERE
