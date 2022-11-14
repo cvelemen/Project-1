@@ -1,21 +1,21 @@
 body {
-  background-color: rgb(47, 68, 87) !important;
+  background-color: rgb(92, 225, 230) !important;
+  height: 100vh;
 }
-.hero-body{
-
-  background-color: rgb(92,225,230);
-
+.hero-body {
+  background-color: rgb(92, 225, 230);
 }
-.hero.is-warning{
-  background-color: rgb(92,225,230);
+.hero.is-warning {
+  background-color: rgb(92, 225, 230);
   align-items: center;
 }
-.hero-body{
+.hero-body {
   padding: 10px;
   padding-bottom: 20px;
 }
-
-
+.field.has-addons{
+  justify-content: center;
+}
 .weatherHeader {
   border: 2px solid;
   border-radius: 10px 10px 0px 0px;

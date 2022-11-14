@@ -16,19 +16,27 @@
   </head>
   <body>
     <header>
-      <div id="logo" class="columns">
-        <div>Logo Goes Here</div>
-      </div>
+      <section class="hero is-warning">
+        <img class="logo" src="Blue Minimalist Bar & Cafe Logo.png"><img>
+        <div class="hero-body">
+          <p style=text-align:center; class="title">
+          </p>
+          <p class="subtitle">Find the perfect drink no matter the day!</p>
+        </div>
+      </section>
+    </div>
     </header>
+    <div class="field has-addons center">
+      <div class="control">
+        <input class="input" id="cityInput" type="text" placeholder="City">
+      </div>
+      <div class="control">
+        <button id="submitButton" class="button is-primary ">Submit</button>
+      </div>
+    </div>
     <div class="columns is-variable is-8-widescreen">
       <div class="weatherCard box column">
-        <h2 class="weatherHeader">Enter a City:</h2>
-        <div class="control">
-          <input id="cityInput" class="input" type="text" placeholder="City">
-          <div class="submit">
-          <button id="submitButton" class="button is-primary ">Submit</button>
-        </div>
-      </div>
+        <h2 class="weatherHeader">City Weather</h2>
         <!-- <input class="input" type="text" placeholder="Enter a City:"> -->
         <div id="#html" class="box weatherList">
         </div>
