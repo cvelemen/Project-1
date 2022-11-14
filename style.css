@@ -1,7 +1,20 @@
 body {
   background-color: rgb(47, 68, 87) !important;
-  height: 120vh;
 }
+.hero-body{
+
+  background-color: rgb(92,225,230);
+
+}
+.hero.is-warning{
+  background-color: rgb(92,225,230);
+  align-items: center;
+}
+.hero-body{
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
 
 .weatherHeader {
   border: 2px solid;
