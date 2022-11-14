@@ -1,26 +1,27 @@
 body {
   background-color: rgb(47, 68, 87) !important;
+  height: 100vh;
 }
 
 .weatherHeader {
-border: 2px solid;
-justify-content: center;
-text-align: center;
-height: 20%;
+  border: 2px solid;
+  border-radius: 10px 10px 0px 0px;
+  justify-content: center;
+  text-align: center;
+  height: 20%;
 }
 .icons {
-border: 2px solid;
-text-align: center;
-height: 20%;
+  border: 2px solid;
+  text-align: center;
+  height: 20%;
 }
 .weatherList {
-border: 2px solid;
-height: 60%;
+  border: 2px solid;
+  height: 60%;
+  border-radius: 0px 0px 10px 10px;
 }
-.weatherCard {
 
-}
-.column { 
+.column {
   margin: 50px;
 }
 .columns {
@@ -30,14 +31,29 @@ height: 60%;
   margin-top: 100px;
   height: 50vh;
   width: 40vw;
+  border-radius: 20px;
 }
 .musicCard {
   margin-top: 100px;
-  height: 50vh;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
   width: 40vw;
+  border-radius: 20px;
 }
 
 #logo {
   justify-content: center;
   margin-top: auto;
+}
+#drinkCard {
+  width: 99%;
+}
+
+#showNot {
+display: none;
+};
+
+.ingredientTitle {
+font-weight: 200;
 }
