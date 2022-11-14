@@ -12,12 +12,6 @@ const api = "c90b5488ed6ad2675575883e578f5209"
 var city  // To be used in event listener.
 
 // Array is created holding cocktails appropriate for hot weather.
-hotWeatherCocktails = [
-
-// TODO: create input for user to enter a city's name into
-const api = "c90b5488ed6ad2675575883e578f5209";
-
-var city;
 
 $("#submitButton").on("click", function (event) {
   event.preventDefault();
@@ -35,22 +29,22 @@ function getLatLong(city) {
     })
     .then(function (data) {
       console.log("Weather API:",apiResults);
-      // let lat = apiResults.coord.lat;
-      // let lon = apiResults.coord.lon;
-      // var html =
-      // `<div class="card" style="width:10rem">
-      //   <div class="card-body">
-      //     <h5 class="card-title">${city}
-      //       <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
-      //     </h5>
-      //       <p class="card-text">Temp: ${apiResults.main.temp}</p>
-      //       <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
-      //       <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
-      //       <p class="card-text">Description: ${apiResults.weather[0].description}</p>
-      //   </div>
-      // </div>`
-      // document.getElementById("#weatherHeader").innerHTML = html
-      // getFiveDayForcast(lat,lon,city)
+      let lat = apiResults.coord.lat;
+      let lon = apiResults.coord.lon;
+      var html =
+      `<div class="card" style="width:10rem">
+        <div class="card-body">
+          <h5 class="card-title">${city}
+            <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
+          </h5>
+            <p class="card-text">Temp: ${apiResults.main.temp}</p>
+            <p class="card-text">Humidity: ${apiResults.main.humidity}</p>
+            <p class="card-text">Windspeed: ${apiResults.wind.speed}</p>
+            <p class="card-text">Description: ${apiResults.weather[0].description}</p>
+        </div>
+      </div>`
+      document.getElementById("#weatherHeader").innerHTML = html
+      getFiveDayForcast(lat,lon,city)
       // TODO pass function that will use conditions to choose drink based on weather
     });
 }
@@ -185,10 +179,11 @@ function getCocktailInfo(drink) {
 
       // Build card containing drink information and asign it to var html.
       var html =
-        `<div class="card">
+        `<div class="card">`
+    })
 
-var randomSelect = Math.floor(Math.random() * sunnyCocktails.length);
-var drink = sunnyCocktails[randomSelect];
+// var randomSelect = Math.floor(Math.random() * sunnyCocktails.length);
+// var drink = sunnyCocktails[randomSelect];
 
 getCocktailAPI(drink);
 function getCocktailAPI(drink) {
@@ -264,68 +259,38 @@ function getCocktailAPI(drink) {
       ingredients += `<p class="subtitle is-6">${ingredientName} ${measure}</p>`
 
     }
-=======
-    
-        <div class="content" id="showNot">
-          <a href="#">Ingredients: d</a> <a href="#">#responsive</a>
-      </div>
-      </div>
-    </div>`;
-      document.getElementById("cocktailChoice").innerHTML = html;
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-
-  function getIngredients(drink) {
-    var ingredients = "";
-    for (var i = 0; i < 15; i++) {
-      var ingredientName = drink["strIngredient" + (i + 1)];
-      if (!ingredientName) {
-        break;
-      }
-      var measure = drink["strMeasure" + (i + 1)];
-      ingredients += `<li class="subtitle is-6"> ${ingredientName} ${measure} </li>`;
-    }
     return ingredients;
+    
+  //       `<div class="content" id="showNot">
+  //         <a href="#">Ingredients: d</a> <a href="#">#responsive</a>
+  //     </div>
+  //     </div>
+  //   </div>;
+  //     document.getElementById("cocktailChoice").innerHTML = html;
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });`
+
+  // function getIngredients(drink) {
+  //   var ingredients = "";
+  //   for (var i = 0; i < 15; i++) {
+  //     var ingredientName = drink["strIngredient" + (i + 1)];
+  //     if (!ingredientName) {
+  //       break;
+  //     }
+  //     var measure = drink["strMeasure" + (i + 1)];
+  //     ingredients += <li class="subtitle is-6"> ${ingredientName} ${measure} </li>;
+    }
+
   }
 }
 
 
-    return ingredients
 
 
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 // var requestUrl = 'www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 
 // $.get(requestUrl, function(data){
 //   console.log(data);
 //   console.log
-// });
-
