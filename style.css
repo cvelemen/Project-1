@@ -49,3 +49,11 @@ body {
 #drinkCard {
   width: 99%;
 }
+
+#showNot {
+display: none;
+};
+
+.ingredientTitle {
+font-weight: 200;
+}
