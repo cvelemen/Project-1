@@ -82,3 +82,7 @@ body {
 .ingredientTitle {
   font-weight: 200;
 }
+
+.columns.is-variable.is-8-widescreen{
+  background-color: rgb(92, 225, 230);
+}
