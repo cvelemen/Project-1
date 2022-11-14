@@ -147,7 +147,7 @@ function getDrink(city) {
 
       var html =
         `<div class="card" style="width:10rem">
-        <div class="card-body">
+        <div class="card-body tempIcons">
           <h5 class="card-title">${city}
             <img src="http://openweathermap.org/img/wn/${apiResults.weather[0].icon}@2x.png" class="card-img-top" alt="...">
           </h5>
